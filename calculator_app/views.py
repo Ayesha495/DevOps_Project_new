@@ -7,3 +7,6 @@ def home(request):
 def bug(request):
     #BUG ALERT: the line below should be return HttpResponse("this is not a buggy code.")
     return HttpResponse("This is not a buggy code")
+
+def enhancement(request):
+    return HttpResponse("This is an enhancement code added by Jannat.")
