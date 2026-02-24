@@ -6,4 +6,4 @@ def home(request):
 
 def bug(request):
     #BUG ALERT: the line below should be return HttpResponse("this is not a buggy code.")
-    return Http("This is a buggy view")
+    return HttpResponse("This is not a buggy code")
