@@ -5,3 +5,9 @@ This is initial commit by nabiha nasir
 This commit is made by Kashaf Chaudhary.  
 Kashaf added a line to home view.
 
+How to build Docker Image:
+git pull
+make sure you are in your project root directory
+docker build -t calculator-app .
+
+docker run -p 8000:8000 calculator-app
