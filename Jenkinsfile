@@ -1,32 +1,49 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_CREDENTIALS = 'dockercred' 
+        IMAGE_NAME = 'ayesha495/calculator-app'         
+        IMAGE_TAG = '3-25-25.2'
+    }
+
     stages {
 
-        stage('Clone Repository') {
+        stage('Pull code from GitHub') {
             steps {
-                git 'https://github.com/Ayesha495/DevOps_Project_new.git'
+                echo "Cloning repository..."
+                git branch: 'main', url: 'https://github.com/Ayesha495/DevOps_Project_new.git'
             }
         }
 
-        stage('Setup Python Environment') {
+        stage('Build Docker image') {
             steps {
-                bat 'python -m venv venv'
-                bat 'venv\\Scripts\\activate'
+                echo "Building Docker image..."
+                script {
+                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                }
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Push Docker image to Docker Hub') {
             steps {
-                bat 'venv\\Scripts\\pip install -r requirements.txt'
+                echo "Logging into Docker Hub and pushing image..."
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKERHUB_CREDENTIALS}") {
+                        sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    }
+                }
             }
         }
 
-        stage('Run Migrations') {
-            steps {
-                bat 'venv\\Scripts\\python manage.py migrate'
-            }
-        }
+    }
 
+    post {
+        success {
+            echo "Pipeline completed successfully ✅"
+        }
+        failure {
+            echo "Pipeline failed ❌"
+        }
     }
 }
