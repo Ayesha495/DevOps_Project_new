@@ -8,7 +8,6 @@ pipeline {
     }
 
     stages {
-
         stage('Pull code from GitHub') {
             steps {
                 echo "Cloning repository..."
@@ -25,24 +24,24 @@ pipeline {
             }
         }
 
-       stage('Push Docker image to Docker Hub') {
-        steps {
-        echo "Logging into Docker Hub and pushing image..."
-        script {
-            withCredentials([usernamePassword(
-                credentialsId: "${DOCKERHUB_CREDENTIALS}",
-                usernameVariable: 'DOCKER_USER',
-                passwordVariable: 'DOCKER_PASS'
-            )]) {
-                bat "docker login -u %DOCKER_USER% -p %DOCKER_PASS%"
-                bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+        stage('Push Docker image to Docker Hub') {
+            steps {
+                echo "Logging into Docker Hub and pushing image..."
+                script {
+                    withCredentials([usernamePassword(
+                        credentialsId: "${DOCKERHUB_CREDENTIALS}",
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )]) {
+                        // Note: Passing passwords in CLI can show in logs; 
+                        // consider 'docker login --password-stdin' for better security.
+                        bat "docker login -u %DOCKER_USER% -p %DOCKER_PASS%"
+                        bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    }
+                }
             }
         }
-    }
-}
-        }
-
-    }
+    } // End of stages
 
     post {
         success {
