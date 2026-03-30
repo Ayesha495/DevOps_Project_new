@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = 'dockercred' 
-        IMAGE_NAME = 'ayesha495/calculator-app'         
-        IMAGE_TAG = '3-25-25.2'
+        DOCKERHUB_CREDENTIALS = 'c5b75660-79c2-4cef-a9c5-a93aa9ca652d' 
+        IMAGE_NAME = 'nabihanasir/calculator'         
+        IMAGE_TAG = 'ver1'
     }
 
     stages {
