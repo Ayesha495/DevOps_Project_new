@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo "Building Docker image..."
                 script {
-                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                    bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
                 echo "Logging into Docker Hub and pushing image..."
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', "${DOCKERHUB_CREDENTIALS}") {
-                        sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                        bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                     }
                 }
             }
