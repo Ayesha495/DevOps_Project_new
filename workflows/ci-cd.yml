@@ -39,7 +39,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ nabihanasir }}
-          password: ${{ dckr_pat__42OoPnIJeIBO1Wc1YnzUU0Pewo }}
+          password: ${{secrets.DOCKER-HUB-ACCESS-TOKEN }}
 
       - name: Build and Push Docker Image
         run: |
