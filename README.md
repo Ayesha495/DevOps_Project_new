@@ -30,4 +30,3 @@ Containerized Django app
 Basic Django calculator app created
 
 
-testing github actions workflow.
