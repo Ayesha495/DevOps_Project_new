@@ -30,3 +30,4 @@ Containerized Django app
 Basic Django calculator app created
 
 
+github actions pipeline test
