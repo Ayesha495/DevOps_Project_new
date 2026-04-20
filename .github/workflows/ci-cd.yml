@@ -42,7 +42,7 @@ jobs:
 
           docker pull ${{ secrets.DOCKER_USERNAME }}/calculator-app
 
-          docker stop calculator-container || true
-          docker rm calculator-container || true
+          docker stop calculator-app || true
+          docker rm calculator-app || true
 
-          docker run -d -p 8000:8000 --name calculator-container ${{ secrets.DOCKER_USERNAME }}/calculator-app
+          docker run -d -p 8000:8000 --name calculator-app ${{ secrets.DOCKER_USERNAME }}/calculator-app
