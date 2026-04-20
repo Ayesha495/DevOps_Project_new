@@ -38,7 +38,11 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
           docker pull ${{ secrets.DOCKER_USERNAME }}/calculator-app
+
           docker stop calculator-container || true
           docker rm calculator-container || true
+
           docker run -d -p 8000:8000 --name calculator-container ${{ secrets.DOCKER_USERNAME }}/calculator-app
