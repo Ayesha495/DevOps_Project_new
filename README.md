@@ -1,33 +1,36 @@
+# Calculator App - CI/CD Pipeline (DevOps Project)
 
-How to build Docker Image:
-git pull
-make sure you are in your project root directory
-docker build -t calculator-app .
+##  Project Overview
+This project is a Django-based Calculator application containerized using Docker and deployed using a fully automated CI/CD pipeline.
 
-docker run -p 8000:8000 calculator-app
+The pipeline is implemented using GitHub Actions and automates the process of building, pushing, and deploying the application to an AWS EC2 instance.
 
-## CI/CD Pipeline Description
-This project uses GitHub Actions to automate:
-- Building a Docker image
-- Pushing the image to Docker Hub
-- Deploying the app to AWS EC2
+---
 
-## How to Run Locally
+##  CI/CD Pipeline Description
 
+The CI/CD pipeline performs the following steps:
+
+1. **Build Stage**
+   - Builds a Docker image of the application.
+
+2. **Push Stage**
+   - Pushes the Docker image to Docker Hub using secure GitHub Secrets.
+
+3. **Deploy Stage**
+   - Connects to AWS EC2 via SSH.
+   - Pulls the latest Docker image from Docker Hub.
+   - Stops and removes the old container (if any).
+   - Runs the updated container on port 8000.
+
+The pipeline is triggered automatically on:
+- Push to `main` branch
+- Pull request to `main` branch
+
+---
+
+##  Docker Setup
+
+### Build Image
 ```bash
 docker build -t calculator-app .
-docker run -p 8000:8000 calculator-app
-```
-## Changelog
-### v3.0 - CI/CD Integration
-Added GitHub Actions workflow
-Automated Docker build and deployment
-Connected Docker Hub and EC2
-### v2.0 - Docker Setup
-Created Dockerfile
-Containerized Django app
-### v1.0 - Initial Version
-Basic Django calculator app created
-
-
-github actions pipeline test
