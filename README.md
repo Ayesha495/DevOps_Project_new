@@ -34,3 +34,4 @@ The pipeline is triggered automatically on:
 ### Build Image
 ```bash
 docker build -t calculator-app .
+docker run -p 8000:8000 calculator-app
