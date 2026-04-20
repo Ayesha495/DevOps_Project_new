@@ -6,4 +6,3 @@ This commit is made by Kashaf Chaudhary.
 Kashaf added a line to home view.
 
 THIS SHOULD NOT BE HERE!!!!
-hadia imtiaz made some new changes
