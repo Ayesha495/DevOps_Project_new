@@ -35,3 +35,23 @@ The pipeline is triggered automatically on:
 ```bash
 docker build -t calculator-app .
 docker run -p 8000:8000 calculator-app
+```
+
+Live at: http://51.21.200.161:8000/app/
+
+## Changelog
+### v3.0 - CI/CD Pipeline Added
+Implemented GitHub Actions workflow
+Automated Docker build, push, and deployment
+Connected Docker Hub and AWS EC2
+### v2.0 - Docker Integration
+Added Dockerfile
+Containerized Django application
+### v1.0 - Initial Release
+Basic Django Calculator application
+## Technologies Used
+Django
+Docker
+GitHub Actions
+AWS EC2
+Docker Hub
