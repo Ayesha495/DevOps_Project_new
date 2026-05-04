@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: calculator
-        image: ayesha495/calculator-app:3-25-25
+        image: ayesha495/calculator-app:v2
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
