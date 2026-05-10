@@ -1,0 +1,36 @@
+I0510 21:48:26.937213   20288 log.go:245] (0xc000adc000) (0xc0007a2640) Create stream
+I0510 21:48:26.946316   20288 log.go:245] (0xc000adc000) (0xc0007a2640) Stream added, broadcasting: 1
+I0510 21:48:26.970838   20288 log.go:245] (0xc000adc000) (0xc000675720) Create stream
+I0510 21:48:26.974218   20288 log.go:245] (0xc000adc000) (0xc000675720) Stream added, broadcasting: 3
+I0510 21:48:27.298767   20288 log.go:245] (0xc000adc000) Reply frame received for 1
+I0510 21:48:27.300558   20288 log.go:245] (0xc0007a2640) (1) Writing data frame
+I0510 21:48:27.303615   20288 log.go:245] (0xc000adc000) Reply frame received for 3
+I0510 21:48:27.307095   20288 log.go:245] (0xc000675720) (3) Writing data frame
+I0510 21:48:27.317323   20288 log.go:245] (0xc000adc000) (0xc0006757c0) Create stream
+I0510 21:48:27.322234   20288 log.go:245] (0xc000adc000) (0xc0006757c0) Stream added, broadcasting: 5
+I0510 21:48:27.324527   20288 log.go:245] (0xc000adc000) (0xc000294640) Create stream
+I0510 21:48:27.325056   20288 log.go:245] (0xc000adc000) (0xc000294640) Stream added, broadcasting: 7
+I0510 21:48:27.396495   20288 log.go:245] (0xc000adc000) Reply frame received for 5
+I0510 21:48:27.397017   20288 log.go:245] (0xc000adc000) Reply frame received for 7
+I0510 21:48:27.397017   20288 log.go:245] (0xc0006757c0) (5) Writing data frame
+I0510 21:48:27.621157   20288 log.go:245] (0xc000adc000) Data frame received for 1
+I0510 21:48:27.621694   20288 log.go:245] (0xc0007a2640) (1) Data frame handling
+I0510 21:48:27.622301   20288 log.go:245] (0xc0007a2640) (1) Data frame sent
+I0510 21:48:27.622898   20288 log.go:245] (0xc000adc000) Data frame received for 5
+I0510 21:48:27.623493   20288 log.go:245] (0xc0006757c0) (5) Data frame handling
+I0510 21:48:27.623493   20288 log.go:245] (0xc000adc000) Data frame received for 1
+I0510 21:48:27.624058   20288 log.go:245] (0xc000adc000) (0xc0006757c0) Stream removed, broadcasting: 5
+I0510 21:48:27.624597   20288 log.go:245] (0xc0007a2640) (1) Data frame handling
+I0510 21:48:27.625140   20288 log.go:245] (0xc000adc000) (0xc0007a2640) Stream removed, broadcasting: 1
+E0510 21:48:27.625140   20288 portforward.go:424] "Unhandled Error" err=<
+	an error occurred forwarding 9090 -> 9090: error forwarding port 9090 to pod 83dc399b2bcc3573014136db6a18c08c5171b8f60c8d99fbbeadbfa7f84d0f77, uid : exit status 1: 2026/05/10 16:48:27 socat[18950] E connect(5, AF=2 127.0.0.1:9090, 16): Connection refused
+ >
+I0510 21:48:27.626160   20288 log.go:245] (0xc000adc000) (0xc0007a2640) Stream removed, broadcasting: 1
+I0510 21:48:27.626672   20288 log.go:245] (0xc000adc000) (0xc000675720) Stream removed, broadcasting: 3
+I0510 21:48:27.627284   20288 log.go:245] (0xc000adc000) (0xc0006757c0) Stream removed, broadcasting: 5
+I0510 21:48:27.627284   20288 log.go:245] (0xc000adc000) (0xc000294640) Stream removed, broadcasting: 7
+I0510 21:48:27.627840   20288 log.go:245] (0xc000adc000) (0xc000294640) Stream removed, broadcasting: 7
+I0510 21:48:27.628418   20288 log.go:245] (0xc000adc000) (0xc000294640) Stream removed, broadcasting: 7
+I0510 21:48:27.629563   20288 log.go:245] (0xc000adc000) (0xc0006757c0) Stream removed, broadcasting: 5
+I0510 21:48:27.630344   20288 log.go:245] frame read error: read tcp 127.0.0.1:51549->127.0.0.1:62230: use of closed network connection
+error: lost connection to pod
