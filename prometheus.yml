@@ -2,6 +2,12 @@ global:
   scrape_interval: 15s
   evaluation_interval: 15s
 
+remote_write:
+  - url: https://prometheus-prod-43-prod-ap-south-1.grafana.net/api/prom/push
+    basic_auth:
+      username: 3185194
+      password_file: .env
+
 scrape_configs:
   # Prometheus monitors itself on the default port.
   - job_name: prometheus
